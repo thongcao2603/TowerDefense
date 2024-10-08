@@ -2,13 +2,10 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private GameObject towerPrefab;
+    public TowerBtn ClickedBtn { get; private set; }
 
-    public GameObject TowerPrefab
+    public void PickTower(TowerBtn tower)
     {
-        get
-        {
-            return towerPrefab;
-        }
+        this.ClickedBtn = tower;
     }
 }
