@@ -70,6 +70,7 @@ public class TileScript : MonoBehaviour
         tower.transform.SetParent(transform);
         IsEmpty = false;
         ColorTile(emptyColor);
+        GameManager.Instance.BuyTower();
     }
 
     private void ColorTile(Color32 newColor)
