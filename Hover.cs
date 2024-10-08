@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Hover : Singleton<Hover>
@@ -35,4 +33,6 @@ public class Hover : Singleton<Hover>
     {
         this.spriteRenderer.enabled = false;
     }
+
+
 }
