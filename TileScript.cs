@@ -48,5 +48,6 @@ public class TileScript : MonoBehaviour
         GameObject tower = Instantiate(GameManager.Instance.ClickedBtn.TowerPrefab, WorldPosition, Quaternion.identity);
         tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
         tower.transform.SetParent(transform);
+        Hover.Instance.Deactive();
     }
 }

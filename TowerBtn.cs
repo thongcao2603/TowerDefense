@@ -1,10 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerBtn : MonoBehaviour
 {
     [SerializeField] private GameObject towerPrefab;
+    [SerializeField] private SpriteRenderer sprite;
+
+    public SpriteRenderer Sprite
+    {
+        get
+        {
+            return sprite;
+        }
+    }
 
     public GameObject TowerPrefab
     {
@@ -13,16 +20,4 @@ public class TowerBtn : MonoBehaviour
             return towerPrefab;
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 }
