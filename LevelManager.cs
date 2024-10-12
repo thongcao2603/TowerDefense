@@ -87,4 +87,15 @@ public class LevelManager : Singleton<LevelManager>
         blueSpawn = new Point(0, 0);
         Instantiate(bluePortalPrefab, Tiles[blueSpawn].GetComponent<TileScript>().WorldPosition, Quaternion.identity);
     }
+
+    //kiem tra node co nam trong khung Tiles khong?
+    public bool InBouns(Point point)
+    {
+        if (Tiles[point].GridPosition.X < 0 || Tiles[point].GridPosition.Y < 0)
+        {
+            return false;
+        }
+
+        return true;
+    }
 }

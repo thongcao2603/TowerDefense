@@ -6,6 +6,7 @@ public class TileScript : MonoBehaviour
     public Point GridPosition { get; private set; }
     private SpriteRenderer spriteRenderer;
     public bool IsEmpty { get; private set; }
+    public bool IsTower { get; private set; }
 
     private Color32 fullColor = new Color32(255, 118, 118, 255);
     private Color32 emptyColor = new Color32(96, 255, 90, 255);
@@ -32,6 +33,7 @@ public class TileScript : MonoBehaviour
     public void Setup(Point gridPos, Vector3 worldPos, Transform parent)
     {
         IsEmpty = true;
+        IsTower = false;
         this.GridPosition = gridPos;
         transform.position = worldPos;
         transform.SetParent(parent);
@@ -69,6 +71,7 @@ public class TileScript : MonoBehaviour
         tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
         tower.transform.SetParent(transform);
         IsEmpty = false;
+        IsTower = true;
         ColorTile(emptyColor);
         GameManager.Instance.BuyTower();
     }
