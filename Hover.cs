@@ -18,8 +18,9 @@ public class Hover : Singleton<Hover>
 
     private void FollowMouse()
     {
+        //gán vị trí cho giá trị chuột
         transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+        //sure z=0
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 

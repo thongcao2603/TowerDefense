@@ -40,6 +40,8 @@ public class TileScript : MonoBehaviour
         LevelManager.Instance.Tiles.Add(gridPos, this);
     }
 
+    // kiểm tra chuột over, nếu ô trống render màu empty, nếu không trống render màu full,
+    //nếu trống, click left mouse thì đặt tower
     private void OnMouseOver()
     {
         if (!EventSystem.current.IsPointerOverGameObject() && GameManager.Instance.ClickedBtn != null)
@@ -66,13 +68,16 @@ public class TileScript : MonoBehaviour
 
     private void PlaceTower()
     {
-
+        //tạo tower
         GameObject tower = Instantiate(GameManager.Instance.ClickedBtn.TowerPrefab, WorldPosition, Quaternion.identity);
+        //fix tower phía sau đè lên tower phía trước
         tower.GetComponent<SpriteRenderer>().sortingOrder = GridPosition.Y;
+        //gán parent là tile
         tower.transform.SetParent(transform);
         IsEmpty = false;
         IsTower = true;
         ColorTile(emptyColor);
+        //trigger buy tower ở game manager
         GameManager.Instance.BuyTower();
     }
 

@@ -16,6 +16,7 @@ public class GameManager : Singleton<GameManager>
         set
         {
             this.currency = value;
+            //gán text khi set value cho currency
             this.currencyText.text = value.ToString() + "<color=green>$</color>";
         }
     }
@@ -30,7 +31,7 @@ public class GameManager : Singleton<GameManager>
     private void Update()
     {
         HandleEscape();
-        Debug.Log(Currency);
+        //Debug.Log(Currency);
     }
 
     public void PickTower(TowerBtn tower)
@@ -38,6 +39,7 @@ public class GameManager : Singleton<GameManager>
         if (Currency >= tower.Price)
         {
             this.ClickedBtn = tower;
+            //kích hoạt hover với render sprite là sprite của tower đã click
             Hover.Instance.Active(tower.Sprite.sprite);
         }
     }
@@ -47,11 +49,13 @@ public class GameManager : Singleton<GameManager>
         if (Currency >= this.ClickedBtn.Price)
         {
             Currency -= ClickedBtn.Price;
+            //deactive hover, tắt render sprite 
             Hover.Instance.Deactive();
 
         }
     }
 
+    // nhấn esc deactive hover.
     public void HandleEscape()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

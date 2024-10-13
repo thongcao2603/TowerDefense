@@ -10,6 +10,7 @@ public struct Point
         this.Y = y;
     }
 
+    //tạo operator cho Point
     public static bool operator ==(Point first, Point second)
     {
         return first.X == second.X && first.Y == second.Y;

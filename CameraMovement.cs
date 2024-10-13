@@ -38,8 +38,10 @@ public class CameraMovement : MonoBehaviour
 
     public void SetLimits(Vector3 maxTile)
     {
+        //lấy vị trí bottom right của viewport
         Vector3 wp = Camera.main.ViewportToWorldPoint(new Vector3(1, 0));
 
+        //xMax và yMin là vị trí limit mà camera có thể tới
         xMax = maxTile.x - wp.x;
         yMin = maxTile.y - wp.y;
 
